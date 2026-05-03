@@ -11,13 +11,15 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <body>
 
   <!-- ────── NAV ────── -->
   <nav>
-    <a class="nav-logo" href="#">Se<span>7</span>en</a>
+    <a class="nav-logo" href="#">
+      <img src="assets/images/WGGT1159.JPG" alt="Se7en Club" class="nav-logo-img" onerror="this.style.display='none'">
+      <span class="nav-logo-text">Se<span>7</span>en</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">Le Club</a></li>
       <li><a href="#sessions">Sessions</a></li>
@@ -84,13 +86,9 @@
       </div>
     </div>
     <div class="about-image-block">
-       <a href="assets/images/GREO9915.JPEG" class="glightbox" data-gallery="se7en">
-      <img class="about-img-placeholder" src="assets/images/GREO9915.JPEG" alt="">
+      <a href="assets/images/GREO9915.JPEG" class="glightbox" data-gallery="se7en">
+        <img class="about-img-placeholder" src="assets/images/GREO9915.JPEG" alt="Se7en Club session">
       </a>
-    </div>
-    <div class="about-accent">
-      8<small>mois</small>
-    </div>
     </div>
   </section>
 
@@ -204,32 +202,32 @@
       </div>
       <div class="gallery-item">
         <a href="assets/images/IMG_3932_1.PNG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/IMG_3932_1.PNG" alt="">
+          <img src="assets/images/IMG_3932_1.PNG" alt="">
         </a>
       </div>
       <div class="gallery-item">
         <a href="assets/images/YCLR4725.JPG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/YCLR4725.JPG" alt="">
+          <img src="assets/images/YCLR4725.JPG" alt="">
         </a>
       </div>
       <div class="gallery-item">
         <a href="assets/images/IMG_3933.JPG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/IMG_3933.JPG" alt="">
+          <img src="assets/images/IMG_3933.JPG" alt="">
         </a>
       </div>
       <div class="gallery-item">
         <a href="assets/images/IMG_0762.JPG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/IMG_0762.JPG" alt="">
+          <img src="assets/images/IMG_0762.JPG" alt="">
         </a>
       </div>
       <div class="gallery-item">
         <a href="assets/images/IMG_0630.JPG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/IMG_0630.JPG" alt="">
+          <img src="assets/images/IMG_0630.JPG" alt="">
         </a>
       </div>
       <div class="gallery-item">
         <a href="assets/images/OEBV7179.JPG" class="glightbox" data-gallery="se7en">
-        <img src="assets/images/OEBV7179.JPG" alt="">
+          <img src="assets/images/OEBV7179.JPG" alt="">
         </a>
       </div>
     </div>
@@ -352,16 +350,24 @@
   <!-- ────── TOAST ────── -->
   <div class="toast" id="toast">Message envoyé — Merci !</div>
 
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
-    // Formulaire — feedback visuel
+    // ── Lightbox galerie
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true
+    });
+
+    // ── Formulaire — feedback visuel
     const form = document.getElementById('contactForm');
     const toast = document.getElementById('toast');
 
     form.addEventListener('submit', function (e) {
-      // Si Formspree pas encore configuré, juste montrer le toast
       if (form.action.includes('VOTRE_ID')) {
         e.preventDefault();
-        showToast('Configurez Formspree pour activer l\'envoi !');
+        showToast("Configurez Formspree pour activer l'envoi !");
         return;
       }
       showToast('Message envoyé — Merci !');
@@ -373,7 +379,7 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    // Nav active sur scroll
+    // ── Nav active sur scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -389,12 +395,18 @@
       });
     });
 
-    // Galerie — click to expand (optionnel, prêt pour lightbox)
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        if (img) showToast('Lightbox à venir — connectez une librairie comme GLightbox !');
-      });
+    // ── Animation logo au chargement
+    document.addEventListener('DOMContentLoaded', () => {
+      const logoImg = document.querySelector('.nav-logo-img');
+      if (logoImg) {
+        logoImg.style.opacity = '0';
+        logoImg.style.transform = 'scale(0.85)';
+        setTimeout(() => {
+          logoImg.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          logoImg.style.opacity = '1';
+          logoImg.style.transform = 'scale(1)';
+        }, 150);
+      }
     });
   </script>
 
