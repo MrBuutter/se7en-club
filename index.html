@@ -14,8 +14,18 @@
 
 <body>
 
+  <!-- ────── INTRO SCREEN ────── -->
+  <div id="intro-screen">
+    <div class="intro-logo-wrap">
+      <img src="assets/images/WGGT1159.JPG" alt="Se7en Club" class="intro-logo-img" />
+      <div class="intro-logo-text">Se<span>7</span>en</div>
+      <div class="intro-line"></div>
+      <div class="intro-tagline">Club Sportif Associatif</div>
+    </div>
+  </div>
+
   <!-- ────── NAV ────── -->
-  <nav>
+  <nav id="main-nav">
     <a class="nav-logo" href="#">
       <img src="assets/images/WGGT1159.JPG" alt="Se7en Club" class="nav-logo-img" onerror="this.style.display='none'">
       <span class="nav-logo-text">Se<span>7</span>en</span>
@@ -35,57 +45,57 @@
     <div class="hero-bg"></div>
     <div class="hero-number">7</div>
     <div class="hero-content">
-      <span class="hero-tag">Club sportif associatif · Fondé en 2025</span>
-      <h1 class="hero-title">
+      <span class="hero-tag reveal-hero" style="--d:0ms">Club sportif associatif · Fondé en 2024</span>
+      <h1 class="hero-title reveal-hero" style="--d:120ms">
         Se<span class="line2">7en<br>Club</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub reveal-hero" style="--d:260ms">
         Un club, une famille, une passion commune. Depuis 8 mois, nous construisons quelque chose de différent —
         ensemble.
       </p>
-      <div class="hero-actions">
+      <div class="hero-actions reveal-hero" style="--d:380ms">
         <a class="btn-primary" href="#sessions">Nos sessions</a>
         <a class="btn-secondary" href="#about">Découvrir le club</a>
       </div>
     </div>
-    <!--   <div class="hero-scroll">Scroll</div> -->
   </section>
 
   <!-- ────── À PROPOS ────── -->
   <section id="about">
     <div class="about-left">
-      <div class="section-label">À propos</div>
-      <h2 class="section-title">Plus qu'un club,<br>une vision.</h2>
-      <p style="color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px;">
+      <div class="section-label scroll-reveal">À propos</div>
+      <h2 class="section-title scroll-reveal" style="--sd:60ms">Plus qu'un club,<br>une vision.</h2>
+      <p class="scroll-reveal"
+        style="--sd:120ms; color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px;">
         Le Se7en Club est né d'une envie simple : créer un espace où la performance rime avec la bonne humeur. En 8 mois
         d'existence, nous avons organisé des sessions de qualité, accueilli de nouveaux membres et bâti une communauté
         soudée.
       </p>
-      <p style="color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px; margin-top: 1.25rem;">
-        <!-- Personnalisez ce paragraphe avec votre histoire -->
+      <p class="scroll-reveal"
+        style="--sd:180ms; color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px; margin-top: 1.25rem;">
         Notre philosophie : l'exigence dans la pratique, la convivialité dans l'esprit. Peu importe le niveau, tout le
         monde a sa place au Se7en.
       </p>
-      <div class="about-stats">
+      <div class="about-stats scroll-reveal" style="--sd:240ms">
         <div class="stat">
-          <span class="stat-num">8</span>
+          <span class="stat-num" data-target="8" data-prefix="">8</span>
           <span class="stat-label">Mois d'activité</span>
         </div>
         <div class="stat">
-          <span class="stat-num">+20</span>
+          <span class="stat-num" data-target="20" data-prefix="+">+20</span>
           <span class="stat-label">Membres actifs</span>
         </div>
         <div class="stat">
-          <span class="stat-num">8</span>
+          <span class="stat-num" data-target="8" data-prefix="">8</span>
           <span class="stat-label">Sessions organisées</span>
         </div>
         <div class="stat">
-          <span class="stat-num">7</span>
+          <span class="stat-num" data-target="7" data-prefix="">7</span>
           <span class="stat-label">L'esprit du club</span>
         </div>
       </div>
     </div>
-    <div class="about-image-block">
+    <div class="about-image-block scroll-reveal" style="--sd:100ms">
       <a href="assets/images/GREO9915.JPEG" class="glightbox" data-gallery="se7en">
         <img class="about-img-placeholder" src="assets/images/GREO9915.JPEG" alt="Se7en Club session">
       </a>
@@ -96,28 +106,24 @@
   <section id="sessions">
     <div class="sessions-header">
       <div>
-        <div class="section-label">Activité</div>
-        <h2 class="section-title">Nos sessions</h2>
+        <div class="section-label scroll-reveal">Activité</div>
+        <h2 class="section-title scroll-reveal" style="--sd:60ms">Nos sessions</h2>
       </div>
-      <p style="color: var(--gray-light); font-size: 0.85rem; max-width: 280px; text-align: right; line-height: 1.8;">
+      <p class="scroll-reveal"
+        style="--sd:120ms; color: var(--gray-light); font-size: 0.85rem; max-width: 280px; text-align: right; line-height: 1.8;">
         8 mois, des dizaines de sessions, des souvenirs plein la tête.
       </p>
     </div>
 
     <div class="sessions-grid">
-
-      <!-- SESSION 1 — Remplacez par vos vraies sessions -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:0ms">
         <span class="session-num">01</span>
         <div class="session-date">Mois 1 · 2025</div>
         <h3 class="session-name">5 kms + Circuit Training</h3>
-        <p class="session-desc">5 kilomètres de course à pied suivi d’un petit circuit training
-        </p>
+        <p class="session-desc">5 kilomètres de course à pied suivi d'un petit circuit training</p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 2 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:60ms">
         <span class="session-num">02</span>
         <div class="session-date">Mois 2 · 2025</div>
         <h3 class="session-name">Duo Run Compromised</h3>
@@ -125,9 +131,7 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 3 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:120ms">
         <span class="session-num">03</span>
         <div class="session-date">Mois 3 · 2025</div>
         <h3 class="session-name">Athletisme Running</h3>
@@ -135,9 +139,7 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 4 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:0ms">
         <span class="session-num">04</span>
         <div class="session-date">Mois 4 · 2025</div>
         <h3 class="session-name">Hyrox</h3>
@@ -145,19 +147,15 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 5 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:60ms">
         <span class="session-num">05</span>
         <div class="session-date">Mois 5 · 2026</div>
-        <h3 class="session-name">Cross Training </h3>
+        <h3 class="session-name">Cross Training</h3>
         <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 6 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:120ms">
         <span class="session-num">06</span>
         <div class="session-date">Mois 6 · 2026</div>
         <h3 class="session-name">Hybrid Contest</h3>
@@ -165,9 +163,7 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 7 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:0ms">
         <span class="session-num">07</span>
         <div class="session-date">Mois 7 · 2026</div>
         <h3 class="session-name">Trails</h3>
@@ -175,9 +171,7 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
-      <!-- SESSION 8 -->
-      <div class="session-card">
+      <div class="session-card scroll-reveal" style="--sd:60ms">
         <span class="session-num">08</span>
         <div class="session-date">Mois 8 · 2026</div>
         <h3 class="session-name">TEAM CLASH</h3>
@@ -185,47 +179,46 @@
         </p>
         <span class="session-tag">Type d'activité</span>
       </div>
-
     </div>
   </section>
 
   <!-- ────── GALERIE ────── -->
   <section id="galerie">
-    <div class="section-label">Photos & Vidéos</div>
-    <h2 class="section-title">Galerie</h2>
+    <div class="section-label scroll-reveal">Photos & Vidéos</div>
+    <h2 class="section-title scroll-reveal" style="--sd:60ms">Galerie</h2>
 
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:0ms">
         <a href="assets/images/RIKI3913.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/RIKI3913.JPG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:60ms">
         <a href="assets/images/IMG_3932_1.PNG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/IMG_3932_1.PNG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:120ms">
         <a href="assets/images/YCLR4725.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/YCLR4725.JPG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:180ms">
         <a href="assets/images/IMG_3933.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/IMG_3933.JPG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:60ms">
         <a href="assets/images/IMG_0762.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/IMG_0762.JPG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:120ms">
         <a href="assets/images/IMG_0630.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/IMG_0630.JPG" alt="">
         </a>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item scroll-reveal" style="--sd:180ms">
         <a href="assets/images/OEBV7179.JPG" class="glightbox" data-gallery="se7en">
           <img src="assets/images/OEBV7179.JPG" alt="">
         </a>
@@ -235,39 +228,32 @@
 
   <!-- ────── ACTUALITÉS ────── -->
   <section id="actualites">
-    <div class="section-label">Blog</div>
-    <h2 class="section-title">Actualités</h2>
+    <div class="section-label scroll-reveal">Blog</div>
+    <h2 class="section-title scroll-reveal" style="--sd:60ms">Actualités</h2>
 
     <div class="news-grid">
-      <!-- ARTICLE 1 — Remplacez par vos vraies actus -->
-      <div class="news-item">
+      <div class="news-item scroll-reveal" style="--sd:0ms">
         <div class="news-date">Mai 2025</div>
         <h3 class="news-title">Bike Yard</h3>
         <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
           Gardez ça court et accrocheur.</p>
         <a class="news-read" href="#">Lire la suite →</a>
       </div>
-
-      <!-- ARTICLE 2 -->
-      <div class="news-item">
+      <div class="news-item scroll-reveal" style="--sd:80ms">
         <div class="news-date">Avril 2025</div>
         <h3 class="news-title">Titre de votre actualité</h3>
         <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
           Gardez ça court et accrocheur.</p>
         <a class="news-read" href="#">Lire la suite →</a>
       </div>
-
-      <!-- ARTICLE 3 -->
-      <div class="news-item">
+      <div class="news-item scroll-reveal" style="--sd:0ms">
         <div class="news-date">Mars 2025</div>
         <h3 class="news-title">Titre de votre actualité</h3>
         <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
           Gardez ça court et accrocheur.</p>
         <a class="news-read" href="#">Lire la suite →</a>
       </div>
-
-      <!-- ARTICLE 4 -->
-      <div class="news-item">
+      <div class="news-item scroll-reveal" style="--sd:80ms">
         <div class="news-date">Février 2025</div>
         <h3 class="news-title">Titre de votre actualité</h3>
         <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
@@ -280,17 +266,17 @@
   <!-- ────── CONTACT ────── -->
   <section id="contact">
     <div class="contact-left">
-      <div class="section-label">Contact</div>
-      <h2 class="section-title">On vous<br>répond.</h2>
+      <div class="section-label scroll-reveal">Contact</div>
+      <h2 class="section-title scroll-reveal" style="--sd:60ms">On vous<br>répond.</h2>
 
-      <div class="contact-info-block">
+      <div class="contact-info-block scroll-reveal" style="--sd:120ms">
         <div class="contact-info-item">
           <div class="info-label">Email</div>
-          <div class="info-value"><a href="mailto:contact@se7enclub.fr">se7en.clb@gmail.com</a></div>
+          <div class="info-value"><a href="mailto:se7en.clb@gmail.com">se7en.clb@gmail.com</a></div>
         </div>
         <div class="contact-info-item">
           <div class="info-label">Téléphone</div>
-          <div class="info-value"><a href="tel:+33600000000">+33 6 58 57 59 45 58</a></div>
+          <div class="info-value"><a href="tel:+33658575945">+33 6 58 57 59 45</a></div>
         </div>
         <div class="contact-info-item">
           <div class="info-label">Localisation</div>
@@ -298,18 +284,20 @@
         </div>
       </div>
 
-      <div class="social-links">
-        <a class="social-link" href="https://www.instagram.com/se7en_clb/" title="Instagram"> <img
-            src="assets/images/Icon Intsagram.svg" alt=""></a>
-        <a class="social-link" href="#" title="Facebook"> <img src="assets/images/Icon Facebook.svg" alt=""></a>
-        <!-- <a class="social-link" href="#" title="TikTok">TK</a> -->
-        <a class="social-link" href="#" title="Linkedin"> <img src="assets/images/Icon Linkedin.svg" alt=""></a>
-        <!-- <a class="social-link" href="#" title="X / Twitter">X</a> -->
+      <div class="social-links scroll-reveal" style="--sd:180ms">
+        <a class="social-link" href="https://www.instagram.com/se7en_clb/" title="Instagram">
+          <img src="assets/images/Icon Intsagram.svg" alt="Instagram">
+        </a>
+        <a class="social-link" href="#" title="Facebook">
+          <img src="assets/images/Icon Facebook.svg" alt="Facebook">
+        </a>
+        <a class="social-link" href="#" title="Linkedin">
+          <img src="assets/images/Icon Linkedin.svg" alt="LinkedIn">
+        </a>
       </div>
     </div>
 
-    <div class="contact-right">
-      <!-- ACTION = votre URL Formspree, ex: https://formspree.io/f/xxxxxxxx -->
+    <div class="contact-right scroll-reveal" style="--sd:100ms">
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjglgqke" method="POST">
         <div class="form-row">
           <div class="field">
@@ -351,64 +339,7 @@
   <div class="toast" id="toast">Message envoyé — Merci !</div>
 
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script>
-    // ── Lightbox galerie
-    const lightbox = GLightbox({
-      selector: '.glightbox',
-      touchNavigation: true,
-      loop: true,
-      autoplayVideos: true
-    });
-
-    // ── Formulaire — feedback visuel
-    const form = document.getElementById('contactForm');
-    const toast = document.getElementById('toast');
-
-    form.addEventListener('submit', function (e) {
-      if (form.action.includes('VOTRE_ID')) {
-        e.preventDefault();
-        showToast("Configurez Formspree pour activer l'envoi !");
-        return;
-      }
-      showToast('Message envoyé — Merci !');
-    });
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3500);
-    }
-
-    // ── Nav active sur scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current
-          ? 'var(--white)'
-          : 'var(--gray-light)';
-      });
-    });
-
-    // ── Animation logo au chargement
-    document.addEventListener('DOMContentLoaded', () => {
-      const logoImg = document.querySelector('.nav-logo-img');
-      if (logoImg) {
-        logoImg.style.opacity = '0';
-        logoImg.style.transform = 'scale(0.85)';
-        setTimeout(() => {
-          logoImg.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          logoImg.style.opacity = '1';
-          logoImg.style.transform = 'scale(1)';
-        }, 150);
-      }
-    });
-  </script>
+  <script src="js/main.js"></script>
 
 </body>
 
