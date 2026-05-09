@@ -62,7 +62,7 @@ body {
 
 /* Conteneur SVG — centré, responsive */
 .intro-logo-svg-wrap {
-  width: clamp(160px, 45vw, 420px);
+  width: clamp(50px, 45vw, 220px);
 }
 
 .intro-svg {
@@ -666,7 +666,7 @@ section { padding: 8rem 3rem; }
 .calendly-placeholder.active { display: flex; }
 
 .cal-ph-icon {
-  width: 52px; height: 52px;
+  width: 52px; height: 52px;  
   border: 1px solid var(--gray-mid);
   display: flex; align-items: center; justify-content: center;
   color: var(--gray-light);
@@ -857,14 +857,15 @@ section { padding: 8rem 3rem; }
 .social-links { display: flex; gap: 0.75rem; margin-top: 2.5rem; }
 .social-link {
   width: 46px; height: 46px;
-  border: 1px solid var(--gray-mid);
+  /* border: 1px solid var(--gray-mid); */
+  border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   text-decoration: none;
   padding: 10px;
   transition: background 0.25s, border-color 0.25s, transform 0.2s;
 }
 .social-link img { width: 18px; height: 18px; object-fit: contain; display: block; filter: brightness(0.55); transition: filter 0.25s; }
-.social-link:hover { background: var(--white); border-color: var(--white); transform: translateY(-3px); }
+.social-link:hover { background: var(--white); border-color: var(--white); transform: translateY(-3px); border-radius: 50%; }
 .social-link:hover img { filter: invert(1); }
 
 /* ── FORMULAIRE ── */
@@ -1065,7 +1066,7 @@ footer {
   footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.2rem; }
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 0.85rem; }
 
-  .intro-logo-svg-wrap { width: clamp(200px, 78vw, 320px); }
+  .intro-logo-svg-wrap { width: clamp(50px, 78vw, 220px); }
   #reservation { padding: 4rem 1.2rem; }
   .reservation-inner { gap: 2.5rem; }
   .reservation-features li { font-size: 0.83rem; }
