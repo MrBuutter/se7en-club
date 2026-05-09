@@ -1,346 +1,398 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Se7en Club</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
+  <title>Se7en Club — Club Sportif Associatif · Lens</title>
+  <meta name="description" content="Se7en Club, club sportif associatif basé à Lens. Running, trail, cross training, hyrox. Rejoignez-nous !" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+  <!-- Plausible Analytics — RGPD, sans cookie, sans consentement -->
+  <!-- ⚠️ ÉTAPE : remplace "se7enclub.fr" par ton vrai domaine Netlify ou custom -->
+  <script defer data-domain="se7enclub.netlify.app" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
 
-  <!-- ────── INTRO SCREEN ────── -->
-  <div id="intro-screen">
-    <div class="intro-logo-wrap">
-      <img src="assets/images/Photo_logo_seven_01.JPG" alt="Se7en Club" class="intro-logo-img" />
-      <div class="intro-logo-text">Se<span>7</span>en</div>
-      <div class="intro-line"></div>
-      <div class="intro-tagline">Club Sportif Associatif</div>
+<!-- ══════════════════════════════════════════════
+     INTRO SCREEN — SVG stroke animation
+     Vector 1.svg : logo piste de course
+     Animation : tracé progressif puis fill
+══════════════════════════════════════════════ -->
+<div id="intro-screen">
+  <div class="intro-wrap">
+
+    <!-- Logo vectoriel animé -->
+    <div class="intro-logo-svg-wrap">
+      <svg class="intro-svg" viewBox="0 0 856 352" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Se7en Club">
+        <!-- Paths FILL — apparaissent après le tracé -->
+        <path class="svg-fill" d="M384 1.50476H134.5C124.833 2.33809 101.4 6.00476 85 14.0048C75.8333 17.0048 51.4 30.9048 27 62.5048C21.8333 69.3381 9.3 91.4048 0.5 125.005V219.505C1 228.838 6.8 255.505 26 287.505C32 295.838 51 316.805 79 334.005C83.3333 338.005 102.8 347.005 146 351.005L719.5 350.005C730.5 350.005 761.5 344.405 797.5 322.005C802.5 320.005 818.4 306.505 842 268.505C846 261.005 854.3 240.005 855.5 216.005V131.005C854.5 123.505 851.8 107.105 849 101.505C846.833 88.8381 832.1 55.7048 790.5 24.5048C780.167 18.1714 752.4 4.70476 724 1.50476L619 0.504761V30.5048H724L731.5 31.5048C740 33.0048 762.1 39.8048 782.5 55.0048C791.667 60.8381 813.2 82.5048 826 122.505L828 216.005L826 226.005C824.167 238.505 812.7 270.405 781.5 298.005C773.833 304.171 750.7 317.905 719.5 323.505H146C138.833 323.171 122.5 321.505 114.5 317.505C104.333 315.171 79.9 305.905 63.5 287.505C55 280.671 36.1 257.505 28.5 219.505V125.005C32.5 109.671 46.3 74.7048 69.5 57.5048C81.6667 48.3381 111.7 30.0048 134.5 30.0048H384V1.50476Z"/>
+        <path class="svg-fill" d="M384 62.5048H134.5C123.5 64.5048 97.4 73.4048 81 93.0048C74.5 100.171 61.5 120.505 61.5 144.505V214.005C61 215.838 61.4 222.205 67 233.005C69.3333 241.005 78.6 260.305 97 273.505C102.833 278.171 120.8 287.905 146 289.505H442.5C440.333 287.171 441.7 266.605 464.5 203.005C471.333 181.005 498.1 122.105 550.5 62.5048H402.5V34.5048H613.5V61.5048C596.667 81.3381 559.1 130.405 543.5 168.005C532.833 191.171 510.7 247.905 507.5 289.505L726 288.005C736.333 285.838 760.7 276.905 775.5 258.505C780.833 253.505 792.2 237.105 795 211.505V141.505C795.167 132.171 791.3 109.105 774.5 91.5048C771.167 85.0048 755.6 69.9048 720 61.5048H619V34.5048H720C722.833 34.6714 729.1 35.4048 731.5 37.0048C739 38.5048 757.5 43.7048 771.5 52.5048C779.274 57.0048 797.758 71.8048 809.5 95.0048C812.167 99.3381 818.5 113.405 822.5 135.005V222.505C820.333 231.338 813.5 252.905 803.5 268.505C799.833 273.505 789.1 286.005 775.5 296.005C772.134 300.005 756.222 310.105 719.5 318.505H134C123.833 316.338 99.7 309.505 84.5 299.505C79.3333 296.671 65.4 286.205 51 267.005C46.1667 259.005 35.8 238.305 33 219.505V131.005C32.5 129.505 33.2 122.605 40 107.005C43.7868 96.8381 56.8884 72.4048 79 56.0048C85.5 50.6976 105.7 39.0675 134.5 35.0048H384V62.5048Z"/>
+        <path class="svg-fill" d="M613.5 0.504761V30.5048H402.5V1.50476L613.5 0.504761Z"/>
+        <path class="svg-fill" d="M398 30.5048L389 30.0048V0.504761H398V30.5048Z"/>
+        <path class="svg-fill" d="M389 34.5048V62.5048H398V34.5048H389Z"/>  
+
+        <!-- Paths STROKE — se dessinent progressivement -->
+        <path class="svg-stroke svg-stroke-1" d="M384 1.50476H134.5C124.833 2.33809 101.4 6.00476 85 14.0048C75.8333 17.0048 51.4 30.9048 27 62.5048C21.8333 69.3381 9.3 91.4048 0.5 125.005V219.505C1 228.838 6.8 255.505 26 287.505C32 295.838 51 316.805 79 334.005C83.3333 338.005 102.8 347.005 146 351.005L719.5 350.005C730.5 350.005 761.5 344.405 797.5 322.005C802.5 320.005 818.4 306.505 842 268.505C846 261.005 854.3 240.005 855.5 216.005V131.005C854.5 123.505 851.8 107.105 849 101.505C846.833 88.8381 832.1 55.7048 790.5 24.5048C780.167 18.1714 752.4 4.70476 724 1.50476L619 0.504761V30.5048H724L731.5 31.5048C740 33.0048 762.1 39.8048 782.5 55.0048C791.667 60.8381 813.2 82.5048 826 122.505L828 216.005L826 226.005C824.167 238.505 812.7 270.405 781.5 298.005C773.833 304.171 750.7 317.905 719.5 323.505H146C138.833 323.171 122.5 321.505 114.5 317.505C104.333 315.171 79.9 305.905 63.5 287.505C55 280.671 36.1 257.505 28.5 219.505V125.005C32.5 109.671 46.3 74.7048 69.5 57.5048C81.6667 48.3381 111.7 30.0048 134.5 30.0048H384V1.50476Z" stroke="white" stroke-width="1.5"/>
+        <path class="svg-stroke svg-stroke-2" d="M384 62.5048H134.5C123.5 64.5048 97.4 73.4048 81 93.0048C74.5 100.171 61.5 120.505 61.5 144.505V214.005C61 215.838 61.4 222.205 67 233.005C69.3333 241.005 78.6 260.305 97 273.505C102.833 278.171 120.8 287.905 146 289.505H442.5C440.333 287.171 441.7 266.605 464.5 203.005C471.333 181.005 498.1 122.105 550.5 62.5048H402.5V34.5048H613.5V61.5048C596.667 81.3381 559.1 130.405 543.5 168.005C532.833 191.171 510.7 247.905 507.5 289.505L726 288.005C736.333 285.838 760.7 276.905 775.5 258.505C780.833 253.505 792.2 237.105 795 211.505V141.505C795.167 132.171 791.3 109.105 774.5 91.5048C771.167 85.0048 755.6 69.9048 720 61.5048H619V34.5048H720C722.833 34.6714 729.1 35.4048 731.5 37.0048C739 38.5048 757.5 43.7048 771.5 52.5048C779.274 57.0048 797.758 71.8048 809.5 95.0048C812.167 99.3381 818.5 113.405 822.5 135.005V222.505C820.333 231.338 813.5 252.905 803.5 268.505C799.833 273.505 789.1 286.005 775.5 296.005C772.134 300.005 756.222 310.105 719.5 318.505H134C123.833 316.338 99.7 309.505 84.5 299.505C79.3333 296.671 65.4 286.205 51 267.005C46.1667 259.005 35.8 238.305 33 219.505V131.005C32.5 129.505 33.2 122.605 40 107.005C43.7868 96.8381 56.8884 72.4048 79 56.0048C85.5 50.6976 105.7 39.0675 134.5 35.0048H384V62.5048Z" stroke="white" stroke-width="1.5"/>
+        <path class="svg-stroke svg-stroke-3" d="M613.5 0.504761V30.5048H402.5V1.50476L613.5 0.504761Z" stroke="white" stroke-width="1.5"/>
+        <path class="svg-stroke svg-stroke-4" d="M398 30.5048L389 30.0048V0.504761H398V30.5048Z" stroke="white" stroke-width="1.5"/>
+        <path class="svg-stroke svg-stroke-5" d="M389 34.5048V62.5048H398V34.5048H389Z" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="intro-divider"></div>
+    <div class="intro-tagline">Club Sportif Associatif <br>du <br>Se7en Club</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     NAV — Vector 2.svg inline (lettres SE7EN)
+══════════════════════════════════════════════ -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#" aria-label="Se7en Club — accueil">
+    <svg class="nav-logo-svg" viewBox="0 0 1086 415" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M65.3255 364.697C60.4352 362.601 49.8162 353.379 46.4629 333.258H0.354402C-0.344212 338.847 -0.483935 352.96 4.54608 364.697C7.34054 370.286 15.4445 383.561 25.5045 391.944C31.0934 398.232 49.8162 411.646 79.9964 415H117.721C126.803 413.603 146.644 409.551 153.351 404.52C167.323 396.136 195.268 373.919 195.268 352.121V322.778C193.87 312.997 186.884 291.338 170.118 282.955C168.72 281.557 145.806 273.313 65.3255 251.515C61.1338 250.118 52.3313 245.646 50.6546 238.939V220.076C53.449 215.185 62.3913 204.985 75.8047 203.308C86.9825 200.513 113.53 198.278 130.297 211.692C133.79 213.788 140.357 221.753 138.68 236.843H188.98C187.583 223.569 181.435 194.505 168.022 184.444C159.638 177.458 136.584 162.646 111.434 159.293H79.9964C71.613 159.992 50.2354 164.323 31.792 176.061C24.8059 180.253 9.15693 194.505 2.45024 217.98V247.323C2.45024 252.912 7.06109 268.283 25.5045 285.051C28.9976 287.845 53.5888 298.045 124.009 316.49C128.201 317.189 138.261 320.682 144.967 329.066C146.365 333.956 148.321 344.995 144.967 350.025C145.666 352.121 142.452 358.828 124.009 368.889C110.735 370.985 80.4155 373.081 65.3255 364.697Z" fill="white"/>
+      <path d="M392.277 165.581H216.226V408.712H400.66V360.505H266.526V301.818H381.797V259.899H266.526V211.692H392.277V165.581Z" fill="white"/>
+      <path d="M603.957 81.7424L425.81 404.52H532.698L712.94 71.2626V0H417.427V81.7424H603.957Z" fill="white"/>
+      <path d="M685.694 408.712V165.581H865.937V211.692H740.186V255.707H855.458V306.01H740.186V360.505H872.224V408.712H685.694Z" fill="white"/>
+      <path d="M886.895 165.581V408.712H939.291V236.843L1033.6 404.52H1086V165.581H1037.8V333.258L943.483 165.581H886.895Z" fill="white"/>
+    </svg>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">Le Club</a></li>
+    <li><a href="#sessions">Sessions</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#reservation">Réserver</a></li>
+    <li><a href="#prochainement">Bientôt</a></li>
+    <li><a href="#prochainement">Bientôt</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a class="nav-cta" href="#reservation">Réserver une session</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO — titre texte conservé + améliorations UX
+══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- <div class="hero-img-bg" aria-hidden="true"></div> -->
+  <div class="hero-bg"></div>
+  <div class="hero-number" aria-hidden="true">7</div>
+  <div class="hero-content">
+    <span class="hero-tag reveal-hero" style="--d:0ms">Club sportif associatif · Fondé en 2024</span>
+    <h1 class="hero-title reveal-hero" style="--d:120ms">
+      Se<span class="line2">7en<br>Club</span>
+    </h1>
+    <p class="hero-sub reveal-hero" style="--d:260ms">
+      Un club, une famille, une passion commune. Depuis 8 mois, nous construisons quelque chose de différent — ensemble.
+    </p>
+    <div class="hero-actions reveal-hero" style="--d:380ms">
+      <a class="btn-primary" href="#sessions">Nos sessions</a>
+      <a class="btn-secondary" href="#about">Découvrir le club</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator hero-scroll-anim" aria-hidden="true">
+<!--     <span class="scroll-line"></span>
+    <span class="scroll-label">Scroll</span> -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     À PROPOS
+══════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-left">
+    <div class="section-label scroll-reveal">À propos</div>
+    <h2 class="section-title scroll-reveal" style="--sd:60ms">Plus qu'un club,<br>une vision.</h2>
+    <p class="scroll-reveal" style="--sd:120ms; color:var(--gray-light); font-size:0.95rem; line-height:1.9; max-width:440px;">
+      Le Se7en Club est né d'une envie simple : créer un espace où la performance rime avec la bonne humeur. En 8 mois d'existence, nous avons organisé des sessions de qualité, accueilli de nouveaux membres et bâti une communauté soudée.
+    </p>
+    <p class="scroll-reveal" style="--sd:180ms; color:var(--gray-light); font-size:0.95rem; line-height:1.9; max-width:440px; margin-top:1.25rem;">
+      Notre philosophie : l'exigence dans la pratique, la convivialité dans l'esprit. Peu importe le niveau, tout le monde a sa place au Se7en.
+    </p>
+    <div class="about-stats scroll-reveal" style="--sd:240ms">
+      <div class="stat">
+        <span class="stat-num" data-target="8" data-prefix="">8</span>
+        <span class="stat-label">Mois d'activité</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="20" data-prefix="+">+20</span>
+        <span class="stat-label">Membres actifs</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="8" data-prefix="">8</span>
+        <span class="stat-label">Sessions organisées</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="7" data-prefix="">7</span>
+        <span class="stat-label">L'esprit du club</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-image-block scroll-reveal" style="--sd:100ms">
+    <a href="assets/images/GREO9915.JPEG" class="glightbox" data-gallery="se7en">
+      <img class="about-img" src="assets/images/GREO9915.JPEG" alt="Session Se7en Club">
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SESSIONS
+══════════════════════════════════════════════ -->
+<section id="sessions">
+  <div class="sessions-header">
+    <div>
+      <div class="section-label scroll-reveal">Activité</div>
+      <h2 class="section-title scroll-reveal" style="--sd:60ms">Nos sessions</h2>
+    </div>
+    <p class="scroll-reveal" style="--sd:120ms; color:var(--gray-light); font-size:0.85rem; max-width:280px; text-align:right; line-height:1.8;">
+      8 mois, des dizaines de sessions, des souvenirs plein la tête.
+    </p>
+  </div>
+  <div class="sessions-grid">
+    <div class="session-card scroll-reveal" style="--sd:0ms"><span class="session-num">01</span><div class="session-date">Mois 1 · 2025</div><h3 class="session-name">5 kms + Circuit Training</h3><p class="session-desc">5 kilomètres de course à pied suivi d'un circuit training.</p><span class="session-tag tag--running">Running</span></div>
+    <div class="session-card scroll-reveal" style="--sd:60ms"><span class="session-num">02</span><div class="session-date">Mois 2 · 2025</div><h3 class="session-name">Duo Run Compromised</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--running">Running</span></div>
+    <div class="session-card scroll-reveal" style="--sd:120ms"><span class="session-num">03</span><div class="session-date">Mois 3 · 2025</div><h3 class="session-name">Athlétisme Running</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--athletisme">Athlétisme</span></div>
+    <div class="session-card scroll-reveal" style="--sd:0ms"><span class="session-num">04</span><div class="session-date">Mois 4 · 2025</div><h3 class="session-name">Hyrox</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--hyrox">Hyrox</span></div>
+    <div class="session-card scroll-reveal" style="--sd:60ms"><span class="session-num">05</span><div class="session-date">Mois 5 · 2026</div><h3 class="session-name">Cross Training</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--cross">Cross Training</span></div>
+    <div class="session-card scroll-reveal" style="--sd:120ms"><span class="session-num">06</span><div class="session-date">Mois 6 · 2026</div><h3 class="session-name">Hybrid Contest</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--hybrid">Hybrid</span></div>
+    <div class="session-card scroll-reveal" style="--sd:0ms"><span class="session-num">07</span><div class="session-date">Mois 7 · 2026</div><h3 class="session-name">Trails</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--trail">Trail</span></div>
+    <div class="session-card scroll-reveal" style="--sd:60ms"><span class="session-num">08</span><div class="session-date">Mois 8 · 2026</div><h3 class="session-name">Team Clash</h3><p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session.</p><span class="session-tag tag--team">Team</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     GALERIE
+══════════════════════════════════════════════ -->
+<section id="galerie">
+  <div class="section-label scroll-reveal">Photos & Vidéos</div>
+  <h2 class="section-title scroll-reveal" style="--sd:60ms">Galerie</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item scroll-reveal" style="--sd:0ms"><a href="assets/images/RIKI3913.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/RIKI3913.JPG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:60ms"><a href="assets/images/IMG_3932_1.PNG" class="glightbox" data-gallery="se7en"><img src="assets/images/IMG_3932_1.PNG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:120ms"><a href="assets/images/YCLR4725.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/YCLR4725.JPG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:180ms"><a href="assets/images/IMG_3933.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/IMG_3933.JPG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:60ms"><a href="assets/images/IMG_0762.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/IMG_0762.JPG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:120ms"><a href="assets/images/IMG_0630.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/IMG_0630.JPG" alt="Session Se7en"></a></div>
+    <div class="gallery-item scroll-reveal" style="--sd:180ms"><a href="assets/images/OEBV7179.JPG" class="glightbox" data-gallery="se7en"><img src="assets/images/OEBV7179.JPG" alt="Session Se7en"></a></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     RÉSERVATION — CALENDLY EMBED PREMIUM
+══════════════════════════════════════════════ -->
+<section id="reservation">
+  <div class="reservation-inner">
+    <div class="reservation-left scroll-reveal">
+      <div class="section-label">Réservation</div>
+      <h2 class="section-title">Réserve<br>ta session.</h2>
+      <p style="color:var(--gray-light); font-size:0.95rem; line-height:1.9; max-width:360px; margin-top:1rem;">
+        Choisis ta prochaine session directement dans le calendrier. Simple, rapide, sans compte nécessaire.
+      </p>
+      <ul class="reservation-features scroll-reveal" style="--sd:80ms">
+        <li><span class="feat-dot"></span>Confirmation instantanée</li>
+        <li><span class="feat-dot"></span>Rappel automatique par email</li>
+        <li><span class="feat-dot"></span>Annulation libre jusqu'à 24h avant</li>
+      </ul>
+      <a class="btn-primary" style="margin-top:2rem; display:inline-block;" href="#contact">Une question d'abord ?</a>
+    </div>
+
+    <div class="reservation-right scroll-reveal" style="--sd:120ms">
+      <!-- ⚠️ ÉTAPE 1 : Remplace l'URL par ton lien Calendly -->
+      <!-- Exemple : https://calendly.com/se7en-club/session-running  -->
+      <div class="calendly-embed-wrap" id="calendlyWrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/ad_coaching_sportif/se7en-club-8?utm_source=ig&utm_medium=social&utm_content=link_in_bio&utm_id=97760_v0_s00_e0_tv3_a1denni8qp6cde&month=2026-05"
+          style="min-width:280px; height:700px;" id="calendlyWidget">
+        </div>
+      </div>
+
+      <!-- Placeholder affiché si Calendly non configuré -->
+      <div class="calendly-placeholder" id="calendlyPlaceholder">
+        <div class="cal-ph-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <p class="cal-ph-title">Calendrier de réservation</p>
+        <p class="cal-ph-sub">Connecte ton compte Calendly pour activer les réservations en ligne en quelques minutes.</p>
+        <a class="btn-primary" href="https://calendly.com" target="_blank" rel="noopener">Créer mon Calendly gratuit →</a>
+        <p class="cal-ph-note">Gratuit · Aucune carte requise · 2 min</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PROCHAINEMENT — Aperçu des prochaines sessions
+══════════════════════════════════════════════ -->
+<section id="prochainement">
+  <div class="proch-header">
+    <div>
+      <div class="section-label scroll-reveal">Agenda</div>
+      <h2 class="section-title scroll-reveal" style="--sd:60ms">Prochainement.</h2>
+    </div>
+    <div class="proch-update-badge scroll-reveal" style="--sd:80ms">
+      <span class="proch-pulse"></span>
+      <span>Mis à jour chaque semaine</span>
     </div>
   </div>
 
-  <!-- ────── NAV ────── -->
-  <nav id="main-nav">
-    <a class="nav-logo" href="#">
-      <img src="assets/images/Photo_logo_seven_01.JPG" alt="Se7en Club" class="nav-logo-img" onerror="this.style.display='none'">
-      <span class="nav-logo-text">Se<span>7</span>en</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#about">Le Club</a></li>
-      <li><a href="#sessions">Sessions</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#actualites">Actu</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a class="nav-cta" href="#contact">Nous rejoindre</a>
-  </nav>
+  <div class="proch-grid">
 
-  <!-- ────── HERO ────── -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-number">7</div>
-    <div class="hero-content">
-      <span class="hero-tag reveal-hero" style="--d:0ms">Club sportif associatif · Fondé en 2024</span>
-      <h1 class="hero-title reveal-hero" style="--d:120ms">
-        Se<span class="line2">7en<br>Club</span>
-      </h1>
-      <p class="hero-sub reveal-hero" style="--d:260ms">
-        Un club, une famille, une passion commune. Depuis 8 mois, nous construisons quelque chose de différent —
-        ensemble.
-      </p>
-      <div class="hero-actions reveal-hero" style="--d:380ms">
-        <a class="btn-primary" href="#sessions">Nos sessions</a>
-        <a class="btn-secondary" href="#about">Découvrir le club</a>
+    <!-- CARD 1 — Session confirmée -->
+    <div class="proch-card proch-card--confirmed scroll-reveal" style="--sd:0ms">
+      <div class="proch-card-top">
+        <span class="proch-status proch-status--confirmed">Confirmé</span>
+        <span class="proch-cat tag--running">Running</span>
+      </div>
+      <div class="proch-date-block">
+        <span class="proch-day">??</span>
+        <span class="proch-month">Juin 2026</span>
+      </div>
+      <h3 class="proch-title">Session à définir</h3>
+      <p class="proch-desc">Les détails de cette session seront annoncés très prochainement. Reste connecté sur nos réseaux.</p>
+      <a class="proch-cta" href="#reservation">Réserver ma place →</a>
+    </div>
+
+    <!-- CARD 2 — En réflexion -->
+    <div class="proch-card proch-card--maybe scroll-reveal" style="--sd:80ms">
+      <div class="proch-card-top">
+        <span class="proch-status proch-status--maybe">En réflexion</span>
+        <span class="proch-cat tag--trail">Trail</span>
+      </div>
+      <div class="proch-date-block">
+        <span class="proch-day">??</span>
+        <span class="proch-month">Été 2026</span>
+      </div>
+      <h3 class="proch-title">Trail en nature</h3>
+      <p class="proch-desc">On explore l'idée d'une session trail en dehors de la ville. Vote en cours sur Instagram.</p>
+      <a class="proch-cta" href="https://www.instagram.com/se7en_clb/" target="_blank" rel="noopener">Suivre l'annonce →</a>
+    </div>
+
+    <!-- CARD 3 — Idée / teaser -->
+    <div class="proch-card proch-card--idea scroll-reveal" style="--sd:160ms">
+      <div class="proch-card-top">
+        <span class="proch-status proch-status--idea">Bientôt</span>
+        <span class="proch-cat tag--hybrid">Hybrid</span>
+      </div>
+      <div class="proch-date-block">
+        <span class="proch-day">??</span>
+        <span class="proch-month">Automne 2026</span>
+      </div>
+      <h3 class="proch-title">Défi Hybride</h3>
+      <p class="proch-desc">Mélange running + musculation en équipe. Format compétitif friendly, tous niveaux acceptés.</p>
+      <a class="proch-cta" href="#contact">Me tenir informé →</a>
+    </div>
+
+  </div>
+
+  <p class="proch-footer-note scroll-reveal" style="--sd:200ms">
+    Les sessions sont annoncées <strong>7 jours à l'avance</strong> sur Instagram <a href="https://www.instagram.com/se7en_clb/" target="_blank" rel="noopener">@se7en_clb</a> et confirmées ici.
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CONTACT — Formspree conservé + UX améliorée
+══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-left">
+    <div class="section-label scroll-reveal">Contact</div>
+    <h2 class="section-title scroll-reveal" style="--sd:60ms">On vous<br>répond.</h2>
+    <div class="contact-info-block scroll-reveal" style="--sd:120ms">
+      <div class="contact-info-item">
+        <div class="info-label">Email</div>
+        <div class="info-value"><a href="mailto:se7en.clb@gmail.com">se7en.clb@gmail.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="info-label">Téléphone</div>
+        <div class="info-value"><a href="tel:+33658575945">+33 6 58 57 59 45</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="info-label">Localisation</div>
+        <div class="info-value">Lens, France</div>
       </div>
     </div>
-  </section>
-
-  <!-- ────── À PROPOS ────── -->
-  <section id="about">
-    <div class="about-left">
-      <div class="section-label scroll-reveal">À propos</div>
-      <h2 class="section-title scroll-reveal" style="--sd:60ms">Plus qu'un club,<br>une vision.</h2>
-      <p class="scroll-reveal"
-        style="--sd:120ms; color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px;">
-        Le Se7en Club est né d'une envie simple : créer un espace où la performance rime avec la bonne humeur. En 8 mois
-        d'existence, nous avons organisé des sessions de qualité, accueilli de nouveaux membres et bâti une communauté
-        soudée.
-      </p>
-      <p class="scroll-reveal"
-        style="--sd:180ms; color: var(--gray-light); font-size: 0.95rem; line-height: 1.9; max-width: 440px; margin-top: 1.25rem;">
-        Notre philosophie : l'exigence dans la pratique, la convivialité dans l'esprit. Peu importe le niveau, tout le
-        monde a sa place au Se7en.
-      </p>
-      <div class="about-stats scroll-reveal" style="--sd:240ms">
-        <div class="stat">
-          <span class="stat-num" data-target="8" data-prefix="">8</span>
-          <span class="stat-label">Mois d'activité</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="20" data-prefix="+">+20</span>
-          <span class="stat-label">Membres actifs</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="8" data-prefix="">8</span>
-          <span class="stat-label">Sessions organisées</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="7" data-prefix="">7</span>
-          <span class="stat-label">L'esprit du club</span>
-        </div>
-      </div>
-    </div>
-    <div class="about-image-block scroll-reveal" style="--sd:100ms">
-      <a href="assets/images/GREO9915.JPEG" class="glightbox" data-gallery="se7en">
-        <img class="about-img-placeholder" src="assets/images/GREO9915.JPEG" alt="Se7en Club session">
+    <div class="social-links scroll-reveal" style="--sd:180ms">
+      <a class="social-link" href="https://www.instagram.com/se7en_clb/" title="Instagram" target="_blank" rel="noopener">
+        <img src="assets/images/Icon Intsagram.svg" alt="Instagram">
+      </a>
+      <a class="social-link" href="#" title="Facebook">
+        <img src="assets/images/Icon Facebook.svg" alt="Facebook">
+      </a>
+      <a class="social-link" href="#" title="LinkedIn">
+        <img src="assets/images/Icon Linkedin.svg" alt="LinkedIn">
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- ────── SESSIONS ────── -->
-  <section id="sessions">
-    <div class="sessions-header">
-      <div>
-        <div class="section-label scroll-reveal">Activité</div>
-        <h2 class="section-title scroll-reveal" style="--sd:60ms">Nos sessions</h2>
-      </div>
-      <p class="scroll-reveal"
-        style="--sd:120ms; color: var(--gray-light); font-size: 0.85rem; max-width: 280px; text-align: right; line-height: 1.8;">
-        8 mois, des dizaines de sessions, des souvenirs plein la tête.
-      </p>
-    </div>
+  <div class="contact-right scroll-reveal" style="--sd:100ms">
+    <!-- Formspree — conservé tel quel, UX améliorée -->
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjglgqke" method="POST" novalidate>
 
-    <div class="sessions-grid">
-      <div class="session-card scroll-reveal" style="--sd:0ms">
-        <span class="session-num">01</span>
-        <div class="session-date">Mois 1 · 2025</div>
-        <h3 class="session-name">5 kms + Circuit Training</h3>
-        <p class="session-desc">5 kilomètres de course à pied suivi d'un petit circuit training</p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:60ms">
-        <span class="session-num">02</span>
-        <div class="session-date">Mois 2 · 2025</div>
-        <h3 class="session-name">Duo Run Compromised</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:120ms">
-        <span class="session-num">03</span>
-        <div class="session-date">Mois 3 · 2025</div>
-        <h3 class="session-name">Athletisme Running</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:0ms">
-        <span class="session-num">04</span>
-        <div class="session-date">Mois 4 · 2025</div>
-        <h3 class="session-name">Hyrox</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:60ms">
-        <span class="session-num">05</span>
-        <div class="session-date">Mois 5 · 2026</div>
-        <h3 class="session-name">Cross Training</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:120ms">
-        <span class="session-num">06</span>
-        <div class="session-date">Mois 6 · 2026</div>
-        <h3 class="session-name">Hybrid Contest</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:0ms">
-        <span class="session-num">07</span>
-        <div class="session-date">Mois 7 · 2026</div>
-        <h3 class="session-name">Trails</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-      <div class="session-card scroll-reveal" style="--sd:60ms">
-        <span class="session-num">08</span>
-        <div class="session-date">Mois 8 · 2026</div>
-        <h3 class="session-name">TEAM CLASH</h3>
-        <p class="session-desc">Décrivez ici ce que vous avez fait lors de cette session. Lieu, participants, ambiance.
-        </p>
-        <span class="session-tag">Type d'activité</span>
-      </div>
-    </div>
-  </section>
+      <!-- Feedback état -->
+      <div class="form-status" id="formStatus" aria-live="polite" role="status"></div>
 
-  <!-- ────── GALERIE ────── -->
-  <section id="galerie">
-    <div class="section-label scroll-reveal">Photos & Vidéos</div>
-    <h2 class="section-title scroll-reveal" style="--sd:60ms">Galerie</h2>
-
-    <div class="gallery-grid">
-      <div class="gallery-item scroll-reveal" style="--sd:0ms">
-        <a href="assets/images/RIKI3913.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/RIKI3913.JPG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:60ms">
-        <a href="assets/images/IMG_3932_1.PNG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/IMG_3932_1.PNG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:120ms">
-        <a href="assets/images/YCLR4725.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/YCLR4725.JPG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:180ms">
-        <a href="assets/images/IMG_3933.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/IMG_3933.JPG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:60ms">
-        <a href="assets/images/IMG_0762.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/IMG_0762.JPG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:120ms">
-        <a href="assets/images/IMG_0630.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/IMG_0630.JPG" alt="">
-        </a>
-      </div>
-      <div class="gallery-item scroll-reveal" style="--sd:180ms">
-        <a href="assets/images/OEBV7179.JPG" class="glightbox" data-gallery="se7en">
-          <img src="assets/images/OEBV7179.JPG" alt="">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────── ACTUALITÉS ────── -->
-  <section id="actualites">
-    <div class="section-label scroll-reveal">Blog</div>
-    <h2 class="section-title scroll-reveal" style="--sd:60ms">Actualités</h2>
-
-    <div class="news-grid">
-      <div class="news-item scroll-reveal" style="--sd:0ms">
-        <div class="news-date">Mai 2025</div>
-        <h3 class="news-title">Bike Yard</h3>
-        <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
-          Gardez ça court et accrocheur.</p>
-        <a class="news-read" href="#">Lire la suite →</a>
-      </div>
-      <div class="news-item scroll-reveal" style="--sd:80ms">
-        <div class="news-date">Avril 2025</div>
-        <h3 class="news-title">Titre de votre actualité</h3>
-        <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
-          Gardez ça court et accrocheur.</p>
-        <a class="news-read" href="#">Lire la suite →</a>
-      </div>
-      <div class="news-item scroll-reveal" style="--sd:0ms">
-        <div class="news-date">Mars 2025</div>
-        <h3 class="news-title">Titre de votre actualité</h3>
-        <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
-          Gardez ça court et accrocheur.</p>
-        <a class="news-read" href="#">Lire la suite →</a>
-      </div>
-      <div class="news-item scroll-reveal" style="--sd:80ms">
-        <div class="news-date">Février 2025</div>
-        <h3 class="news-title">Titre de votre actualité</h3>
-        <p class="news-body">Rédigez ici un résumé de votre actualité. Événement, annonce, compte-rendu de session…
-          Gardez ça court et accrocheur.</p>
-        <a class="news-read" href="#">Lire la suite →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────── CONTACT ────── -->
-  <section id="contact">
-    <div class="contact-left">
-      <div class="section-label scroll-reveal">Contact</div>
-      <h2 class="section-title scroll-reveal" style="--sd:60ms">On vous<br>répond.</h2>
-
-      <div class="contact-info-block scroll-reveal" style="--sd:120ms">
-        <div class="contact-info-item">
-          <div class="info-label">Email</div>
-          <div class="info-value"><a href="mailto:se7en.clb@gmail.com">se7en.clb@gmail.com</a></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="info-label">Téléphone</div>
-          <div class="info-value"><a href="tel:+33658575945">+33 6 58 57 59 45</a></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="info-label">Localisation</div>
-          <div class="info-value">Lens, France</div>
-        </div>
-      </div>
-
-      <div class="social-links scroll-reveal" style="--sd:180ms">
-        <a class="social-link" href="https://www.instagram.com/se7en_clb/" title="Instagram">
-          <img src="assets/images/Icon Intsagram.svg" alt="Instagram">
-        </a>
-        <a class="social-link" href="#" title="Facebook">
-          <img src="assets/images/Icon Facebook.svg" alt="Facebook">
-        </a>
-        <a class="social-link" href="#" title="Linkedin">
-          <img src="assets/images/Icon Linkedin.svg" alt="LinkedIn">
-        </a>
-      </div>
-    </div>
-
-    <div class="contact-right scroll-reveal" style="--sd:100ms">
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjglgqke" method="POST">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">Prénom & Nom</label>
-            <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="jean@email.com" required />
-          </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Prénom & Nom <span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Jean Dupont" required autocomplete="name" />
+          <span class="field-error" id="nameError"></span>
         </div>
         <div class="field">
-          <label for="sujet">Sujet</label>
-          <input type="text" id="sujet" name="sujet" placeholder="Rejoindre le club, renseignement…" />
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jean@email.com" required autocomplete="email" />
+          <span class="field-error" id="emailError"></span>
         </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Votre message…" required></textarea>
-        </div>
-        <button class="form-submit" type="submit">Envoyer le message</button>
-        <p class="form-note">Nous répondons sous 48h.</p>
-      </form>
-    </div>
-  </section>
+      </div>
 
-  <!-- ────── FOOTER ────── -->
-  <footer>
-    <div class="footer-logo">Se7en Club</div>
-    <ul class="footer-links">
-      <li><a href="#about">Le Club</a></li>
-      <li><a href="#sessions">Sessions</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 Se7en Club — Tous droits réservés</p>
-  </footer>
+      <div class="field">
+        <label for="sujet">Sujet</label>
+        <input type="text" id="sujet" name="sujet" placeholder="Rejoindre le club, renseignement…" />
+      </div>
 
-  <!-- ────── TOAST ────── -->
-  <div class="toast" id="toast">Message envoyé — Merci !</div>
+      <div class="field">
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message" placeholder="Votre message…" required></textarea>
+        <span class="field-error" id="messageError"></span>
+      </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script src="js/main.js"></script>
+      <div class="form-footer-row">
+        <button class="form-submit" type="submit" id="formSubmit">
+          <span class="submit-text">Envoyer le message</span>
+          <span class="submit-spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form-note">Réponse sous 48h · Vos données restent confidentielles</p>
+      </div>
+    </form>
+  </div>
+</section>
 
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">Se7en Club</div>
+  <ul class="footer-links">
+    <li><a href="#about">Le Club</a></li>
+    <li><a href="#sessions">Sessions</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#reservation">Réserver</a></li>
+    <li><a href="#prochainement">Bientôt</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Se7en Club — Lens, France</p>
+</footer>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script src="js/main.js"></script>
 </body>
-
 </html>

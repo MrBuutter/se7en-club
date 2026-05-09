@@ -17,7 +17,7 @@ function runIntro() {
   if (!intro) return;
 
   // Durée de l'intro avant de disparaître
-  const INTRO_DURATION = 1900; // ms
+  const INTRO_DURATION = 3500; // ms
 
   setTimeout(() => {
     // 1. Cache l'intro
@@ -39,6 +39,60 @@ function runIntro() {
     }, 1200);
 
   }, INTRO_DURATION);
+}
+
+/* ─────────────────────────────────────────
+   INIT ANIMATION SVG INTRO — VERSION CORRIGÉE
+   Problème original : conflit entre JS inline styles (strokeDashoffset)
+   et @keyframes CSS qui animaient la même propriété.
+   Solution : on supprime les @keyframes, on utilise CSS transition
+   déclenchée via JS (double rAF pour forcer le repaint).
+───────────────────────────────────────── */
+function initIntroSvgAnimation() {
+  const svg = document.querySelector('#intro-screen .intro-svg');
+  if (!svg) return;
+
+  const strokePaths = Array.from(svg.querySelectorAll('.svg-stroke'));
+  const fillPaths   = svg.querySelectorAll('.svg-fill');
+  if (!strokePaths.length) return;
+
+  /* Délai (ms) et durée (ms) par path — effet cascade naturel */
+  const config = [
+    { delay: 80,  duration: 1400 }, // path 1 — grand contour extérieur
+    { delay: 300, duration: 1250 }, // path 2 — contour intérieur
+    { delay: 560, duration: 550  }, // path 3 — petite barre haut
+    { delay: 680, duration: 350  }, // path 4 — connecteur gauche
+    { delay: 720, duration: 280  }, // path 5 — connecteur droit
+  ];
+
+  strokePaths.forEach((path, i) => {
+    const cfg    = config[i] || { delay: 0, duration: 800 };
+    const length = path.getTotalLength();
+
+    /* 1. Masquer complètement le path au départ */
+    path.style.strokeDasharray  = length;
+    path.style.strokeDashoffset = length;
+    path.style.transition       = 'none';
+
+    /* 2. Après le délai propre à ce path, déclencher le tracé.
+          Double requestAnimationFrame : garantit que le navigateur
+          a bien rendu l'état initial (dashoffset=length) avant la transition */
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          path.style.transition       = 'stroke-dashoffset ' + cfg.duration + 'ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          path.style.strokeDashoffset = '0';
+        });
+      });
+    }, cfg.delay);
+  });
+
+  /* 3. Afficher les fills après le dernier tracé */
+  const last      = config[config.length - 1];
+  const fillDelay = last.delay + last.duration + 120;
+  setTimeout(() => {
+    fillPaths.forEach(path => path.classList.add('visible'));
+  }, fillDelay);
 }
 
 
@@ -209,6 +263,49 @@ function initMagneticButtons() {
 
 
 /* ─────────────────────────────────────────
+   CALENDLY — auto-height via postMessage officiel
+   Calendly widget.js envoie la hauteur du contenu
+   via window.postMessage. On resize le wrapper en conséquence
+   pour éviter le scroll interne, surtout sur mobile.
+───────────────────────────────────────── */
+function initCalendlyAutoHeight() {
+  const wrap   = document.getElementById('calendlyWrap');
+  const widget = document.getElementById('calendlyWidget');
+  if (!wrap || !widget) return;
+
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.event) {
+      const ev = e.data.event;
+
+      /* calendly.page_height — hauteur du contenu de la vue courante */
+      if (ev === 'calendly.page_height' && e.data.payload && e.data.payload.height) {
+        const h = parseInt(e.data.payload.height, 10);
+        if (h > 300) {
+          /* +80px de marge pour éviter tout scroll résiduel */
+          wrap.style.height   = (h + 80) + 'px';
+          widget.style.height = (h + 80) + 'px';
+        }
+      }
+
+      /* calendly.profile_page_viewed / calendly.event_type_viewed
+         → on force une hauteur minimale généreuse au premier chargement */
+      if (ev === 'calendly.profile_page_viewed' || ev === 'calendly.event_type_viewed') {
+        if (!wrap.dataset.autoSized) {
+          wrap.style.height   = '820px';
+          widget.style.height = '820px';
+          wrap.dataset.autoSized = '1';
+        }
+      }
+
+      /* Track sur Plausible si disponible */
+      if (window.plausible && ev.startsWith('calendly.')) {
+        plausible('Calendly', { props: { action: ev.replace('calendly.', '') } });
+      }
+    }
+  });
+}
+
+/* ─────────────────────────────────────────
    INIT — tout démarre ici
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,4 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initLightbox();
   initMagneticButtons();
+  initIntroSvgAnimation();
+  initCalendlyAutoHeight();
 });
