@@ -273,36 +273,51 @@ function initCalendlyAutoHeight() {
   const widget = document.getElementById('calendlyWidget');
   if (!wrap || !widget) return;
 
+  /* Hauteur initiale adaptée à l'écran — évite le vide avant le postMessage */
+  const isMobile = window.innerWidth <= 600;
+  const isTablet = window.innerWidth <= 900;
+  const initialH = isMobile ? 680 : isTablet ? 720 : 700;
+  wrap.style.height   = initialH + 'px';
+  widget.style.height = initialH + 'px';
+
   window.addEventListener('message', function(e) {
-    if (e.data && e.data.event) {
-      const ev = e.data.event;
+    if (!e.data || !e.data.event) return;
+    const ev = e.data.event;
 
-      /* calendly.page_height — hauteur du contenu de la vue courante */
-      if (ev === 'calendly.page_height' && e.data.payload && e.data.payload.height) {
-        const h = parseInt(e.data.payload.height, 10);
-        if (h > 300) {
-          /* +80px de marge pour éviter tout scroll résiduel */
-          wrap.style.height   = (h + 80) + 'px';
-          widget.style.height = (h + 80) + 'px';
-        }
-      }
-
-      /* calendly.profile_page_viewed / calendly.event_type_viewed
-         → on force une hauteur minimale généreuse au premier chargement */
-      if (ev === 'calendly.profile_page_viewed' || ev === 'calendly.event_type_viewed') {
-        if (!wrap.dataset.autoSized) {
-          wrap.style.height   = '820px';
-          widget.style.height = '820px';
-          wrap.dataset.autoSized = '1';
-        }
-      }
-
-      /* Track sur Plausible si disponible */
-      if (window.plausible && ev.startsWith('calendly.')) {
-        plausible('Calendly', { props: { action: ev.replace('calendly.', '') } });
+    /* calendly.page_height — hauteur exacte envoyée par Calendly
+       On applique SANS marge supplémentaire pour éviter l'espace en bas */
+    if (ev === 'calendly.page_height' && e.data.payload && e.data.payload.height) {
+      const h = parseInt(e.data.payload.height, 10);
+      if (h > 200) {
+        /* Sur mobile : pas de marge extra — on serre au pixel près */
+        const margin = isMobile ? 0 : 20;
+        wrap.style.height   = (h + margin) + 'px';
+        widget.style.height = (h + margin) + 'px';
       }
     }
+
+    /* Ajustement lors du changement de vue dans Calendly */
+    if (ev === 'calendly.event_type_viewed' || ev === 'calendly.date_and_time_selected') {
+      /* Demande la hauteur actuelle — Calendly la renvoie via page_height */
+      const iframe = widget.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({ event: 'calendly.page_height_request' }, '*');
+      }
+    }
+
+    /* Track Plausible */
+    if (window.plausible && ev.startsWith('calendly.')) {
+      plausible('Calendly', { props: { action: ev.replace('calendly.', '') } });
+    }
   });
+
+  /* Recalcul au resize (rotation mobile) */
+  window.addEventListener('resize', function() {
+    const iframe = widget.querySelector('iframe');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ event: 'calendly.page_height_request' }, '*');
+    }
+  }, { passive: true });
 }
 
 /* ─────────────────────────────────────────
